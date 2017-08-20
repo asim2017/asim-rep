@@ -1,0 +1,44 @@
+<h2 style="color: green">
+    #of items in the invoice: {{tasks.length}}
+</h2>
+<h2 style="color:red">
+    Invoice Total: {{t}} S.P
+</h2>
+
+<table>
+    <tr>
+        <td>Item Name</td>
+        <td>Quantity</td>
+        <td>Price</td>
+    </tr>
+    <tr>
+        <td> <input type="text" #nm (keyup)="handleKeyUp($event)"></td>
+        <td> <input type="number" #qt (keyup)="handleKeyUp($event)"></td>
+        <td> <input type="number" #pr (keyup)="handleKeyUp($event)"></td>
+        <td><button (click)="addNewTask(nm.value,qt.value,pr.value)" style="background-color:greenyellow"> Add item</button></td>
+    </tr>
+
+</table>
+
+<table border=" #nm " *ngFor="let task of tasks " style="color:blue;background-color:lightyellow">
+    <tr>
+        <td>Item Name</td>
+        <td>Quantity</td>
+        <td>Price</td>
+        <td>Total Price</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">{{task.getName()}}</td>
+        <td style="text-align:center">{{task.getQty()}}</td>
+        <td style="text-align:center">{{task.getPrice()}}</td>
+        <td style="text-align:center">{{task.subTotal()}} S.P </td>
+        <td><button (click)="removeTask(task)" style="background-color:tomato">  Delete </button></td>
+    </tr>
+</table>
+<table *ngFor="let task of tasks">
+    <tr>
+        <td>
+
+        </td>
+    </tr>
+</table>
